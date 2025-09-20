@@ -28,10 +28,10 @@ Create the following data frames based on the format provided:
 import pandas as pd 
 
 raw_a = pd.read_excel("board2.xlsx") 
-Instru = raw.loc [(raw_a["Track"]=='Instrumentation') 
+Instru = raw_a.loc [(raw_a["Track"]=='Instrumentation') 
                  & (raw_a["Hometown"]=='Luzon') 
                  & (raw_a["Electronics"]>70), 
-                 ['Name', 'GEAS', 'Electronics']].reset_index(drop = True)
+                 ['Name', 'GEAS', 'Electronics']].reset_index(drop = True) 
 Instru
 ```
 ##### Step-by-step Thought Process.
@@ -45,14 +45,22 @@ raw_a = pd.read_excel("board2.xlsx")
 ```
 3. awdawdawda
 ```python
-Instru = raw.loc [(raw_a["Track"]=='Instrumentation') 
+Instru = raw_a.loc [(raw_a["Track"]=='Instrumentation') 
                  & (raw_a["Hometown"]=='Luzon') 
                  & (raw_a["Electronics"]>70), 
-                 ['Name', 'GEAS', 'Electronics']].reset_index(drop = True)
+                 ['Name', 'GEAS', 'Electronics']].reset_index(drop = True) 
 ```
 4. dwdad
 ```python
 Instru
+```
+
+<br>
+
+#### (b) Filename: Mindy = [ “Name”, “Track”, “Electronics”, “Average >=55”]; where hometown is constant as Mindanao and gender Female 
+
+##### Entire Code:
+```python
 ```
 
 <br>
@@ -68,13 +76,14 @@ import pandas as pd
 raw2 = pd.read_excel("board2.xlsx") 
 raw2['Average'] = raw2[['Math','Electronics','GEAS','Communication']].mean(axis=1) 
 
-Avg_Tract = raw2.groupby("Track")["Average"].mean() 
+
+Avg_Track = raw2.groupby("Track")["Average"].mean() 
 Avg_Gender = raw2.groupby("Gender")["Average"].mean() 
 Avg_Hometown = raw2.groupby("Hometown")["Average"].mean() 
 
-Avg_Tract_df = raw2.groupby("Track")["Average"].mean().reset_index() 
+Avg_Track_df = raw2.groupby("Track")["Average"].mean().reset_index() 
 Avg_Gender_df = raw2.groupby("Gender")["Average"].mean().reset_index() 
-Avg_Hometown_df = raw2.groupby("Hometown")["Average"].mean().reset_index()
+Avg_Hometown_df = raw2.groupby("Hometown")["Average"].mean().reset_index() 
 ```
 
 ##### Entire Code for data visualization graph 1:
@@ -82,7 +91,7 @@ Graph 1: Average Grades by Track
 ```python
 import matplotlib.pyplot as plt
 
-Avg_Tract.plot(kind="bar", color="Yellow", title="Average grade by tract", ylabel="Average Grade", xlabel="Tract")
+Avg_Track.plot(kind="bar", color="Yellow", title="Average Grade by track", ylabel="Average Grade", xlabel="Track")
 plt.show()
 ```
 
@@ -93,7 +102,7 @@ Graph 2: Average Grades by Gender
 ```python
 import matplotlib.pyplot as ply
 
-Avg_Gender.plot(kind="bar", color="pink", title = "Average grade by Gender", ylabel="Average Grade", xlabel="Gender")
+Avg_Gender.plot(kind="bar", color="pink", title = "Average Grade by Gender", ylabel="Average Grade", xlabel="Gender")
 plt.show()
 ```
 
@@ -104,7 +113,7 @@ Graph 3: Average Grades by Hometown
 ```python
 import matplotlib.pyplot as ply
 
-Avg_Hometown.plot(kind="bar", color="blue", title="Average grade by Hometown", ylabel="Average Grade", xlabel="Hometown")
+Avg_Hometown.plot(kind="bar", color="blue", title="Average Grade by Hometown", ylabel="Average Grade", xlabel="Hometown")
 plt.show()
 ```
 
@@ -120,49 +129,52 @@ import pandas as pd
 2. awdawd
 ```python
 raw2 = pd.read_excel("board2.xlsx") 
+raw2['Average'] = raw2[['Math','Electronics','GEAS','Communication']].mean(axis=1) 
 ```
 3. dwada
 ```python
-raw2['Average'] = raw2[['Math','Electronics','GEAS','Communication']].mean(axis=1) 
+Avg_Track = raw2.groupby("Track")["Average"].mean() 
+Avg_Gender = raw2.groupby("Gender")["Average"].mean() 
+Avg_Hometown = raw2.groupby("Hometown")["Average"].mean() 
 ```
 4. asdwa
 ```python
-Avg_Tract = raw2.groupby("Track")["Average"].mean() 
-```
-5. asdwa
-```python
-Avg_Gender = raw2.groupby("Gender")["Average"].mean() 
-```
-5. asdwa
-```python
-Avg_Hometown = raw2.groupby("Hometown")["Average"].mean() 
-```
-6. dawda
-```python
-Avg_Tract_df = raw2.groupby("Track")["Average"].mean().reset_index() 
+Avg_Track_df = raw2.groupby("Track")["Average"].mean().reset_index() 
 Avg_Gender_df = raw2.groupby("Gender")["Average"].mean().reset_index() 
-Avg_Hometown_df = raw2.groupby("Hometown")["Average"].mean().reset_index()
+Avg_Hometown_df = raw2.groupby("Hometown")["Average"].mean().reset_index() 
 ```
-8. dwada
+5. asdwa
 ```python
 import matplotlib.pyplot as plt
 
-Avg_Tract.plot(kind="bar", color="Yellow", title="Average grade by tract", ylabel="Average Grade", xlabel="Tract")
+Avg_Track.plot(kind="bar", color="Yellow", title="Average Grade by track", ylabel="Average Grade", xlabel="Track")
 plt.show()
+```
+5. asdwa
+```python
+import matplotlib.pyplot as ply
+
+Avg_Gender.plot(kind="bar", color="pink", title = "Average Grade by Gender", ylabel="Average Grade", xlabel="Gender")
+plt.show()
+```
+6. dawda
+```python
+import matplotlib.pyplot as ply
+
+Avg_Hometown.plot(kind="bar", color="blue", title="Average Grade by Hometown", ylabel="Average Grade", xlabel="Hometown")
+plt.show()
+```
+8. dwada
+```python
+
 ```
 9. dwada
 ```python
-import matplotlib.pyplot as ply
 
-Avg_Gender.plot(kind="bar", color="pink", title = "Average grade by Gender", ylabel="Average Grade", xlabel="Gender")
-plt.show()
 ```
 10. dwada
 ```python
-import matplotlib.pyplot as ply
 
-Avg_Hometown.plot(kind="bar", color="blue", title="Average grade by Hometown", ylabel="Average Grade", xlabel="Hometown")
-plt.show()
 ```
 
 
