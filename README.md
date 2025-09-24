@@ -233,7 +233,7 @@ plt.show()
 <br>
 
 ## III. Author 
-Name: Cagurangan, Jos Kendrick L.
+Name: Cagurangan, Jos Kendrick L. <br>
 Section: 2ECE - B
 
 
