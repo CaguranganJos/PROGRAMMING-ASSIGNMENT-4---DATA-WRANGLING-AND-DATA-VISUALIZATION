@@ -31,26 +31,26 @@ raw_a = pd.read_excel("board2.xlsx")
 Instru = raw_a.loc [(raw_a["Track"]=='Instrumentation') 
                  & (raw_a["Hometown"]=='Luzon') 
                  & (raw_a["Electronics"]>70), 
-                 ['Name', 'GEAS', 'Electronics']].reset_index(drop = True) 
+                 ['Name', 'GEAS', 'Electronics']].reset_index(drop = True)
 Instru
 ```
 ##### Step-by-step Thought Process.
-1. awdawdawda
+1. First, I have imported the pandas library as pd as it is used throughout the code.
 ```python
 import pandas as pd 
 ```
-2. awdawdawda
+2. Next, I loaded and read the Excel file named "board2.xlsx" and stored it in raw_a as a dataframe. 
 ```python
 raw_a = pd.read_excel("board2.xlsx") 
 ```
-3. awdawdawda
+3. Then, I used a .loc to locate the necessary values needed. Inside .loc I have included three conditions: 1st is that in the "Track" column, the row containing "Instrumentation" is to be located, 2nd is that the "Hometown" column, the row containing "Luzon" is to be located, and lastly, the in the Electronics Column, the row containing a value greater than 70 is to be selected. With those conditions, I have also included the columns "Name", "GEAS", and "Electronics" in the dataframe. All these are stored in "Instru" and their index value got reset.
 ```python
 Instru = raw_a.loc [(raw_a["Track"]=='Instrumentation') 
                  & (raw_a["Hometown"]=='Luzon') 
                  & (raw_a["Electronics"]>70), 
                  ['Name', 'GEAS', 'Electronics']].reset_index(drop = True) 
 ```
-4. dwdad
+4. Lastly, I printed "Instru" to check the dataframe.
 ```python
 Instru
 ```
@@ -61,8 +61,46 @@ Instru
 
 ##### Entire Code:
 ```python
+import pandas as pd 
+
+raw_b = pd.read_excel("board2.xlsx") 
+raw_b['Average'] = raw_b[['Math','Electronics','GEAS','Communication']].mean(axis=1) 
+
+mindy = raw_b.loc[(raw_b["Hometown"]=='Mindanao') 
+                & (raw_b["Gender"]=='Female') 
+                & (raw_b["Average"]>=55), 
+                ['Name','Track', 'Electronics','Average']].reset_index(drop = True)
+mindy
 ```
 
+##### Step-by-step Thought Process.
+1. First, I have imported the pandas library as pd as it is used throughout the code.
+```python
+import pandas as pd 
+```
+2. Next, I loaded and read the Excel file named "board2.xlsx" and stored it in raw_b as a dataframe. 
+```python
+raw_b = pd.read_excel("board2.xlsx") 
+```
+3. Then, I added a column to the dataframe named raw_b with a column name of "Average"; inside this column is the average of the four subjects by getting the mean row-wise in the column per students. 
+```python
+raw_b['Average'] = raw_b[['Math','Electronics','GEAS','Communication']].mean(axis=1) 
+```
+4. Then, I used .loc function, inside this is three conditions. Namely, the following,
+Condition 1: Select only the rows containing "Mindanao" in the "Hometown" Column.
+Condition 2: Select only the rows containing "Female" in the "Gender" Column.
+Condition 3: Select only the rows containing a value greater than or equal to 55 in the "Average" Column.
+With all these conditions, I have included in the data frama the columns: "Name", "Track", "Electronics" and "Average". All these are stored in "mindy" and their index got reset.
+```python
+mindy = raw_b.loc[(raw_b["Hometown"]=='Mindanao') 
+                & (raw_b["Gender"]=='Female') 
+                & (raw_b["Average"]>=55), 
+                ['Name','Track', 'Electronics','Average']].reset_index(drop = True)
+```
+5. Lastly, I printed "mindy" to check the dataframe.
+```python
+mindy
+```
 <br>
 
 ## II. Programming Assignment 4.2
@@ -122,60 +160,66 @@ plt.show()
 <br>
 
 ##### Step-by-step Thought Process.
-1. awdawd
+1. First, I have imported the pandas library as pd as it is used throughout the code.
 ```python
 import pandas as pd 
 ```
-2. awdawd
+2. I then loaded and read the Excel file named "board2.xlsx" and stored it in raw2 as a dataframe. I also added a column named "Average" in the dataframe raw2. Inside this column contains the average of the 4 subjects per student by getting the mean of the students' values in the four subjects row-wise.
 ```python
 raw2 = pd.read_excel("board2.xlsx") 
 raw2['Average'] = raw2[['Math','Electronics','GEAS','Communication']].mean(axis=1) 
 ```
-3. dwada
+3. Then, I grouped the dataframe "raw2" by "Track", "Gender", and "Hometown" separately. After grouping them, I calculated the mean of the Average column for each group. 
 ```python
 Avg_Track = raw2.groupby("Track")["Average"].mean() 
 Avg_Gender = raw2.groupby("Gender")["Average"].mean() 
 Avg_Hometown = raw2.groupby("Hometown")["Average"].mean() 
 ```
-4. asdwa
+4. I also made a dataframe containing the same key and values as above by using .reset_index().
 ```python
 Avg_Track_df = raw2.groupby("Track")["Average"].mean().reset_index() 
 Avg_Gender_df = raw2.groupby("Gender")["Average"].mean().reset_index() 
 Avg_Hometown_df = raw2.groupby("Hometown")["Average"].mean().reset_index() 
 ```
-5. asdwa
+5. I first imported matplotlib.pyplot as plt for me to use the graphs and plots. Then I visualized the average grade per Track using a bar chart through Avg_Track that was made earlier. I plotted Avg_Track values with the following arrangement:
+kind: bar
+color: yellow
+title: "Average Grade by Track"
+ylabel: "Average Grade"
+xlabel: "Track"
 ```python
 import matplotlib.pyplot as plt
 
 Avg_Track.plot(kind="bar", color="Yellow", title="Average Grade by track", ylabel="Average Grade", xlabel="Track")
 plt.show()
 ```
-5. asdwa
+6. I imported matplotlib.pyploy as ply so I could create graph. Then I visuaized the average grade per Gender using a bar chart through Avg_Gender that was made earlier. I plotted the Avg_Gender with the following arrangement:
+kind: bar
+color: pink
+title: "Average Grade by Gender"
+ylabel: "Average Grade"
+xlabel: "Gender"
 ```python
 import matplotlib.pyplot as ply
 
 Avg_Gender.plot(kind="bar", color="pink", title = "Average Grade by Gender", ylabel="Average Grade", xlabel="Gender")
 plt.show()
 ```
-6. dawda
+7. I imported matplotlib.pyplot as ply again so I could create the graph. Then I visualized the average grade per Hometown using a bar chart through Avg_Hometown that was made earlier. I plotted the Avg_Hometown values with the following arrangement:
+kind: bar
+color: blue
+title: "Average Grade by Hometown"
+ylabel: "Average Grade"
+xlabel: "Hometown"
 ```python
 import matplotlib.pyplot as ply
 
 Avg_Hometown.plot(kind="bar", color="blue", title="Average Grade by Hometown", ylabel="Average Grade", xlabel="Hometown")
 plt.show()
 ```
-8. dwada
-```python
 
-```
-9. dwada
-```python
+###### Results of the graphs
 
-```
-10. dwada
-```python
-
-```
 
 
 
