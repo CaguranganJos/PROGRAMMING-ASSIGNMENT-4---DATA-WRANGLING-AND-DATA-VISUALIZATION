@@ -133,8 +133,6 @@ Avg_Track.plot(kind="bar", color="Yellow", title="Average Grade by track", ylabe
 plt.show()
 ```
 
-###### Output graph 1:
-
 ##### Entire Code for data visualization graph 2:
 Graph 2: Average Grades by Gender
 ```python
@@ -144,7 +142,6 @@ Avg_Gender.plot(kind="bar", color="pink", title = "Average Grade by Gender", yla
 plt.show()
 ```
 
-###### Output graph 2: 
 
 ##### Entire Code for data visualization graph 3:
 Graph 3: Average Grades by Hometown
@@ -154,8 +151,6 @@ import matplotlib.pyplot as ply
 Avg_Hometown.plot(kind="bar", color="blue", title="Average Grade by Hometown", ylabel="Average Grade", xlabel="Hometown")
 plt.show()
 ```
-
-###### Output graph 3:
 
 <br>
 
@@ -219,8 +214,27 @@ plt.show()
 ```
 
 ###### Results of the graphs
+![Average Grade by Track](TRACK.png)
 
+``This tells us the students in the Communication Track have the highest average grade, which is slightly higher than Microelectronics, while the Instrumentation track has the lowest average grade. This suggests that some chosen tracks have some influences but not very large.``
 
+<br>
+
+![Average Grade by Gender](GENDER.png)
+
+``Males score higher average compared to females by 1. This suggests that gender does not significantly affect the overall passing rate.``
+
+<br>
+
+![Average Grade by Gender](HOMETOWN.png)
+
+``Students from Luzon have the highest average grades, followed by students from Mindanao and Visayas. Their difference is about 2-3 points, which suggests that hometown might have only a  slight influence on the passing rate``
+
+<br>
+
+## III. Author 
+Name: Cagurangan, Jos Kendrick L.
+Section: 2ECE - B
 
 
 
