@@ -86,10 +86,10 @@ raw_b = pd.read_excel("board2.xlsx")
 ```python
 raw_b['Average'] = raw_b[['Math','Electronics','GEAS','Communication']].mean(axis=1) 
 ```
-4. Then, I used .loc function, inside this is three conditions. Namely, the following,
-Condition 1: Select only the rows containing "Mindanao" in the "Hometown" Column.
-Condition 2: Select only the rows containing "Female" in the "Gender" Column.
-Condition 3: Select only the rows containing a value greater than or equal to 55 in the "Average" Column.
+4. Then, I used .loc function, inside this is three conditions. Namely, the following, <br>
+Condition 1: Select only the rows containing "Mindanao" in the "Hometown" Column. <br>
+Condition 2: Select only the rows containing "Female" in the "Gender" Column. <br>
+Condition 3: Select only the rows containing a value greater than or equal to 55 in the "Average" Column. <br>
 With all these conditions, I have included in the data frama the columns: "Name", "Track", "Electronics" and "Average". All these are stored in "mindy" and their index got reset.
 ```python
 mindy = raw_b.loc[(raw_b["Hometown"]=='Mindanao') 
@@ -176,11 +176,11 @@ Avg_Track_df = raw2.groupby("Track")["Average"].mean().reset_index()
 Avg_Gender_df = raw2.groupby("Gender")["Average"].mean().reset_index() 
 Avg_Hometown_df = raw2.groupby("Hometown")["Average"].mean().reset_index() 
 ```
-5. I first imported matplotlib.pyplot as plt for me to use the graphs and plots. Then I visualized the average grade per Track using a bar chart through Avg_Track that was made earlier. I plotted Avg_Track values with the following arrangement:
-kind: bar
-color: yellow
-title: "Average Grade by Track"
-ylabel: "Average Grade"
+5. I first imported matplotlib.pyplot as plt for me to use the graphs and plots. Then I visualized the average grade per Track using a bar chart through Avg_Track that was made earlier. I plotted Avg_Track values with the following arrangement:<br>
+kind: bar<br>
+color: yellow<br>
+title: "Average Grade by Track"<br>
+ylabel: "Average Grade"<br>
 xlabel: "Track"
 ```python
 import matplotlib.pyplot as plt
@@ -188,11 +188,11 @@ import matplotlib.pyplot as plt
 Avg_Track.plot(kind="bar", color="Yellow", title="Average Grade by track", ylabel="Average Grade", xlabel="Track")
 plt.show()
 ```
-6. I imported matplotlib.pyploy as ply so I could create graph. Then I visuaized the average grade per Gender using a bar chart through Avg_Gender that was made earlier. I plotted the Avg_Gender with the following arrangement:
-kind: bar
-color: pink
-title: "Average Grade by Gender"
-ylabel: "Average Grade"
+6. I imported matplotlib.pyploy as ply so I could create graph. Then I visuaized the average grade per Gender using a bar chart through Avg_Gender that was made earlier. I plotted the Avg_Gender with the following arrangement: <br>
+kind: bar <br>
+color: pink <br>
+title: "Average Grade by Gender" <br>
+ylabel: "Average Grade" <br>
 xlabel: "Gender"
 ```python
 import matplotlib.pyplot as ply
@@ -200,11 +200,11 @@ import matplotlib.pyplot as ply
 Avg_Gender.plot(kind="bar", color="pink", title = "Average Grade by Gender", ylabel="Average Grade", xlabel="Gender")
 plt.show()
 ```
-7. I imported matplotlib.pyplot as ply again so I could create the graph. Then I visualized the average grade per Hometown using a bar chart through Avg_Hometown that was made earlier. I plotted the Avg_Hometown values with the following arrangement:
-kind: bar
-color: blue
-title: "Average Grade by Hometown"
-ylabel: "Average Grade"
+7. I imported matplotlib.pyplot as ply again so I could create the graph. Then I visualized the average grade per Hometown using a bar chart through Avg_Hometown that was made earlier. I plotted the Avg_Hometown values with the following arrangement: <br>
+kind: bar <br>
+color: blue <br>
+title: "Average Grade by Hometown" <br>
+ylabel: "Average Grade" <br>
 xlabel: "Hometown"
 ```python
 import matplotlib.pyplot as ply
